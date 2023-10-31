@@ -9,6 +9,7 @@ from datetime import datetime, date, timedelta
 import calendar
 import json
 import os.path
+from collections import defaultdict
 
 import requests
 import numpy as np
@@ -16,7 +17,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
-from collections import defaultdict
+
 
 
 def remove_unwanted_keys(data, current_supply=False):

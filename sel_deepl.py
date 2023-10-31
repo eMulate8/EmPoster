@@ -48,7 +48,8 @@ def find_element_by_xpath(browser, xpath):
 
 def check_field(browser):
     """
-    Searching an element on a web page using several xpaths
+    Searching an element (where the text to be translated is inserted) 
+    on a web page using several xpaths
     """
     xpath_list = [
         '/html/body/div[4]/main/div[5]/div/div[2]/section[1]/div[3]/div[2]/textarea',

@@ -9,6 +9,7 @@ import discord_bot
 import midjorney
 import trends
 import price_model
+import settings
 
 
 def count_seconds_to_hour(target_hour):
@@ -31,7 +32,7 @@ def count_seconds_to_hour(target_hour):
     return seconds_to_target
 
 
-discord_token = '' # YOUR DISCORD TOKEN HERE
+discord_token = settings.DISCORD_TOKEN
 
 
 async def run_task(task, first_hour, second_hour=None, timeout=1200):

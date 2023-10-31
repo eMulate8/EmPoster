@@ -42,7 +42,7 @@ async def midjorney():
 
 def gpt():
     """ Generate description from ChatGPT-3.5 """
-    openai.api_key = '' # YOUR OPENAI API KEY HERE
+    openai.api_key = settings.OPENAI_API_KEY
     request_for_sentence = f'Generate 5 random adjective and write them space separated'
     try:
         response_sentence = openai.ChatCompletion.create(

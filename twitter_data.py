@@ -20,7 +20,7 @@ def tweets_data():
         'translated_text': 'twit`s text translated to russian',
         'media_paths': path to twit`s images in local dir}
     """
-    twitter_cookies = {} #your twitter cookies
+    twitter_cookies = settings.TWITTER_COOKIES
 
     tweets_dict = {}
 

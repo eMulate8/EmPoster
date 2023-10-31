@@ -22,7 +22,7 @@ async def send_to_channel(method, path=None, text=None):
             try:
                 async with client_telegram:
                     call_from = inspect.currentframe().f_back.f_code.co_name
-                    await client_telegram.send_file(chat_id, path, caption=text)
+                    await client_telegram.send_file(channel_id, path, caption=text)
                     print(f'Message sent successfully and its function calling from {call_from}')
             except Exception as e:
                 print(f'Error sending Message: {e}')
@@ -31,7 +31,7 @@ async def send_to_channel(method, path=None, text=None):
         elif method == 'send_message':
             try:
                 async with client_telegram:
-                    await client_telegram.send_message(chat_id, text, link_preview=False)
+                    await client_telegram.send_message(channel_id, text, link_preview=False)
                     call_from = inspect.currentframe().f_back.f_code.co_name
                     print(f'Message sent successfully and its function calling from {call_from}')
             except Exception as e:
@@ -43,6 +43,7 @@ async def send_to_channel(method, path=None, text=None):
 
 logging.basicConfig(level=logging.DEBUG)
 logging.getLogger('telethon').setLevel(logging.CRITICAL)
-telegram_api_id, telegram_api_hash = , '' # your telegam api id and api hash
-chat_id =  # your telegram channel id
+telegram_api_id = settings.TELEGRAM_API_ID
+telegram_api_hash = settings.TELEGRAM_API_HASH
+channel_id = settings.TELEGRAM_CHANNEL_ID
 lock = asyncio.Lock()

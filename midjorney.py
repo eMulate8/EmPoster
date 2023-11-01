@@ -96,8 +96,9 @@ def grab_text(screen_x: int, screen_y: int, screen_width: int, screen_height: in
             rgb = cv2.cvtColor(res, cv2.COLOR_BGR2RGB)
         else:
             rgb = cv2.cvtColor(mask, cv2.COLOR_BGR2RGB)
-
-        pcm = pytesseract.image_to_string(rgb, lang='eng', config='--psm 7')  # pcm7 or pcm6
+        
+        # you can choose '--pcm 7' or '--pcm 6' for best recognition
+        pcm = pytesseract.image_to_string(rgb, lang='eng', config='--psm 7')  
 
         return pcm.lower()
 
@@ -108,21 +109,21 @@ async def run_discord():
     (coordinates selected for full window mode app with 1366*768 screen resolution)
     """
     if not check_discord_running():
-        subprocess.run(['', '--processStart', 'Discord.exe']) # path to ..\Discord\Update.exe
+        subprocess.run([settings.DISCORD_PATH, '--processStart', 'Discord.exe'])
     else:
-        window_handle = win32gui.FindWindow(None, "Discord") # Title of your discord`s main page
+        window_handle = win32gui.FindWindow(None, settings.DISCORD_TITLE)
         win32gui.ShowWindow(window_handle, win32con.SW_MAXIMIZE)
         win32gui.SetForegroundWindow(window_handle)
-        
-    # change p\n to your channel name + \n in the end 
-    # coordinates may be found by using xy.py
     
-    while grab_text(28, 108, 17, 20, 0, 0, 0, 255, 100, 255, True) != 'p\n': 
+    while grab_text(settings.X_GRAB_DISCORD_SERVER, settings.Y_GRAB_DISCORD_SERVER, 
+                    settings.WIDTH_GRAB_DISCORD_SERVER, settings.HEIGH_GRAB_DISCORD_SERVER, 
+                    settings.A1_HSV, settings.A2_HSV, settings.A3_HSV, 
+                    settings.B1_HSV, settings.B2_HSV, settings.B3_HSV) != f'{settings.DISCORD_SERVER_NAME}\n': 
         await asyncio.sleep(1)
-    pg.moveTo(30, 110, duration=0.1)
+    pg.moveTo(settings.X_CLICK_DISCORD_SERVER, settings.Y_CLICK_DISCORD_SERVER, duration=0.1)
     await click_left_button()
     await asyncio.sleep(5)
-    pg.moveTo(415, 680, duration=0.1)
+    pg.moveTo(settings.X_ENTER_FIELD, settings.Y_ENTER_FIELD, duration=0.1)
     await click_left_button()
 
 
@@ -137,4 +138,4 @@ def check_discord_running():
 
 
 logging.disable(logging.CRITICAL)
-pytesseract.pytesseract.tesseract_cmd = "" # path to pytesseract.exe
+pytesseract.pytesseract.tesseract_cmd = settings.PYTESSERACT_PATH

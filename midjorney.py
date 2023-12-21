@@ -69,8 +69,8 @@ def grab_text(screen_x: int, screen_y: int, screen_width: int, screen_height: in
     Search text in the field of screen. You can choose from the
     two recognition modes most suitable for this task - PCM7 or PCM6.
 
-    :param screen_x: x coordinates of up left corner
-    :param screen_y: y coordinates of up left corner
+    :param screen_x: x coordinates of upper left corner
+    :param screen_y: y coordinates of upper left corner
     :param screen_width: width of field
     :param screen_height: height of field
     :param a1: lower border of hsv

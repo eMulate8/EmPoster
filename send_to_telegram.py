@@ -4,6 +4,7 @@ import logging
 
 from telethon import TelegramClient
 
+import settings
 
 async def send_to_channel(method, path=None, text=None):
     """

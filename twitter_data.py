@@ -6,6 +6,7 @@ from twitter.account import Account
 
 import sel_deepl
 import send_to_telegram
+import settings
 
 
 def tweets_data():

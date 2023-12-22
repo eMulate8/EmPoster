@@ -19,7 +19,6 @@ from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 
 
-
 def remove_unwanted_keys(data, current_supply=False):
     """
     Remove keys from dictionary witch don`t need for further work
@@ -178,8 +177,10 @@ def dominate():
 
     :return: list of dictionaries with timestamp as key and bitcoin dominance index as value
     """
+
     def timestamp_to_seconds(timestamp):
         return int(timestamp / 1000)
+
     data1 = data2 = None
     while data1 is None or data2 is None:
         time.sleep(3)

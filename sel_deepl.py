@@ -56,8 +56,11 @@ def check_field(browser):
         '/html/body/div[3]/main/div[5]/div[1]/div[2]/section[1]/div[3]/div[2]/d-textarea/div',
         '/html/body/div[4]/main/div[5]/div[1]/div[2]/section[1]/div[3]/div[2]/d-textarea/div',
         '/html/body/div[3]/main/div[6]/div[1]/div[2]/section[1]/div[3]/div[2]/d-textarea/div',
-        '/html/body/div[3]/main/div[8]/div[1]/div[2]/section[1]/div[3]/div[2]/d-textarea/div',        '/html/body/div[1]/div[1]/div[2]/div/div[1]/main/div[2]/nav/div/div[2]/div/div/div[1]/section/div/div[2]/div[1]/section/div/div[1]/d-textarea/div[1]/p',
-        '/html/body/div[3]/main/div[7]/div[1]/div[2]/section[1]/div[3]/div[2]/d-textarea/div',        '/html/body/div[1]/div[1]/div[3]/div/div[1]/main/div[2]/nav/div/div[2]/div/div/div[1]/section/div/div[2]/div[1]/section/div/div[1]/d-textarea/div[1]',        '/html/body/div[1]/div[1]/div[2]/div/div[1]/main/div[2]/nav/div/div[2]/div/div/div[1]/section/div/div[2]/div[1]/section/div/div[1]/d-textarea/div[1]'
+        '/html/body/div[3]/main/div[8]/div[1]/div[2]/section[1]/div[3]/div[2]/d-textarea/div',
+        '/html/body/div[1]/div[1]/div[2]/div/div[1]/main/div[2]/nav/div/div[2]/div/div/div[1]/section/div/div[2]/div[1]/section/div/div[1]/d-textarea/div[1]/p',
+        '/html/body/div[3]/main/div[7]/div[1]/div[2]/section[1]/div[3]/div[2]/d-textarea/div',
+        '/html/body/div[1]/div[1]/div[3]/div/div[1]/main/div[2]/nav/div/div[2]/div/div/div[1]/section/div/div[2]/div[1]/section/div/div[1]/d-textarea/div[1]',
+        '/html/body/div[1]/div[1]/div[2]/div/div[1]/main/div[2]/nav/div/div[2]/div/div/div[1]/section/div/div[2]/div[1]/section/div/div[1]/d-textarea/div[1]'
     ]
     for xpath in xpath_list:
         field = find_element_by_xpath(browser, xpath)
